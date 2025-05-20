@@ -150,8 +150,30 @@ else{
 
 /*function signature/sample */
 function  calculateWatchTime( times ) {
-  
+  let totalTime = 0;
+
+
+// 🚩Challenge:  Array element গুলো যদি number না হয় তাহলে   "Invalid" return করবে।  
+  for (const time of times) {
+    if(typeof time !== 'number'){
+      return "Invalid";
+    }
+    // aikhane time k jog kora hoilo 
+    totalTime = time + totalTime;
+  }
+  // ai ta hour ber kora hoilo 
+const hour = Math.floor(totalTime / 3600); 
+const bakiSec = totalTime % 3600;
+
+// aitai minute ber kora holo 
+const minute = Math.floor(bakiSec / 60);
+// minute ber korar pore ja vag ses thake ta second er maje ses kora holo 
+const second = bakiSec % 60;
+
+return { hour, minute, second };
 }
 
-const timeFram = [1000, 2000, 725];
+// const timeFram = [100, 3800, "90" ];
+// const result = calculateWatchTime(timeFram);
+// console.log(result);
 
